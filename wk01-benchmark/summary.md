@@ -1,4 +1,4 @@
-# Bencmark
+# Benchmark
 
 ## Solana
 

@@ -86,7 +86,7 @@ MATIC balance: 494570324964743462
 
 4. Transaction fee: 0.0001064175 * 10 = 0.001064175 MATIC
 
-## Comparison 
+## Summary 
 
 | -    | Solana | Polygon |
 |---------------- | --------------- | --------------- |
@@ -95,5 +95,7 @@ MATIC balance: 494570324964743462
 | Time used   | 1084ms   | 4398400ms   |
 | Transaction fee   |  0.00013 SOL  | 0.1064175 MATIC   |
 | Transaction fee in USD   |  0.00013 * $20.77 = $0.0027   | 0.1064175 * $1.13 = $0.12025 |
+
+Solana can transfer token at 4000x faster with 44x fee less than using Polygon.
 
 

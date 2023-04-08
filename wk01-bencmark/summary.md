@@ -75,7 +75,6 @@ MATIC balance: 494570324964743462
 2023-04-08T03:56:50.982Z
 43984
 ```
-
 ### Result
 1. Transaction used:
    Send MATIC = 10 
@@ -97,5 +96,25 @@ MATIC balance: 494570324964743462
 | Transaction fee in USD   |  0.00013 * $20.77 = $0.0027   | 0.1064175 * $1.13 = $0.12025 |
 
 Solana can transfer token at 4000x faster with 44x fee less than using Polygon.
+
+## Key takeaways
+
+### Solana
+
+1. The chain needs "rent" to support storage use on the chain. If a recipient has zero balance for a token, the sender needs to include enough rent to send funds. 
+
+2. Solana transaction size is limited to the size of 1 UDP packet (1232 bytes). If we want more addresses to be included in a transaction, try using Address Lookup Table (LUTs).
+
+3. Solana make use of GPU to scale up parallel processing. The Sealevel (the solana smart contract runtime) will do the transaction scheduling to maximize the non-overlapping transactions can be run at the same time.
+
+4. Solana checks the recent blockhash of a transaction to reduce the load and memory use of the vaidators.
+
+## Polygon
+
+1. Polygon is one of the L2 solution of ethereum chain. To use it we have to provide the RPC endpoints of both  L1 and the L2.
+
+2. Fund transfer can only be done one by one by default. If we need batch processing like Solana above, we need to make use of the smart contract.
+
+3. The developer documentation is not as detail as solana. I as a newbie had stuck at wallet setup for 2 days...
 
 

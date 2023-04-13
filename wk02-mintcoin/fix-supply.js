@@ -36,17 +36,18 @@ async function createNewTransaction(connection, payer, mintKeypair, destinationW
   const tokenATA = await SPL_TOKEN.getAssociatedTokenAddress(mintKeypair.publicKey, destinationWallet);   
 
 
-  const createNewTokenTransaction = new w3.Transaction().add(
+    const createNewTokenTransaction = new w3.Transaction().add(
 
-    SPL_TOKEN.createMintToInstruction(
-      mintKeypair.publicKey, //Mint
-      tokenATA, //Destination Token Account
-      mintAuthority, //Authority
-      MINT_CONFIG.numberTokens * Math.pow(10, MINT_CONFIG.numDecimals),//number of tokens
-    ),
-  );
+      SPL_TOKEN.createSetAuthorityInstruction(
+        mintKeypair.publicKey,
+        payer.publicKey,
+        SPL_TOKEN.AuthorityType.MintTokens,
+        null
+      )
 
-  return createNewTokenTransaction;
+    );
+    return createNewTokenTransaction;
+  
 }
 
 
@@ -57,16 +58,21 @@ async function main(){
   console.log('Sender Wallet: ', wallet.publicKey.toString());
   console.log('Mint Wallet: ', mintWallet.publicKey.toString());
 
-  const txn = await createNewTransaction(
-    conn,
-    wallet,
-    mintWallet,
-    wallet.publicKey,
-    wallet.publicKey,
-    wallet.publicKey,
-  );
-  const txnId = await conn.sendTransaction(txn, [wallet, mintWallet]);
-  console.log(`Transaction ID: `, txnId);
+  try{
+    const txn = await createNewTransaction(
+      conn,
+      wallet,
+      mintWallet,
+      wallet.publicKey,
+      wallet.publicKey,
+      wallet.publicKey,
+    );
+    const txnId = await conn.sendTransaction(txn, [wallet, mintWallet]);
+    console.log(`Transaction ID: `, txnId);
+  }catch(err){
+    console.log('ERROR:', err);
+  }
+
 
 }
 

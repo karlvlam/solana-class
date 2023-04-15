@@ -2,10 +2,10 @@
 
 ## Solana (devnet)
 
-### Test
-The script use account GHUmnYKusfr8Y9W3t3NcckZsEatZkLqZMsTdpsScrw3i to 100 addresses by:
+### Info 
 
 Update Authority: GHUmnYKusfr8Y9W3t3NcckZsEatZkLqZMsTdpsScrw3i
+
 Token account: WHCyPDBcWCR7AUm7yByXnMPFeL2zZnBDgUbbbBmBrtU 
 
 #### Step 1

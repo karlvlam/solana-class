@@ -18,7 +18,7 @@ Mainly clone from https://dune.com/wagg/bonk-stats . Then convert to Dune SQL
 
 It is complicated, I added a graph about the daily Sharx upgrade.
 
-This part is not completed.
+Still cannot figure out how to query complex data structure such as pre/post_balance. This part is not completed.
 
 
 
